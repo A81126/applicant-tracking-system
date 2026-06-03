@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ATS Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+            ATS Dashboard
+        </h2>
+
+        <a href="/admin/"
+           class="btn btn-dark">
+            Django Admin
+        </a>
+
+    </div>
+
+    <!-- First Row -->
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body text-center">
+
+                    <h1 class="text-primary">
+                        {{ total_jobs }}
+                    </h1>
+
+                    <h5>
+                        Total Jobs
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body text-center">
+
+                    <h1 class="text-success">
+                        {{ live_jobs }}
+                    </h1>
+
+                    <h5>
+                        Live Jobs
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body text-center">
+
+                    <h1 class="text-dark">
+                        {{ total_applications }}
+                    </h1>
+
+                    <h5>
+                        Total Applications
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Status Row -->
+
+    <div class="row g-4 mt-2">
+
+        <div class="col-md-4">
+
+            <div class="card border-warning">
+
+                <div class="card-body text-center">
+
+                    <h2 class="text-warning">
+                        {{ draft_jobs }}
+                    </h2>
+
+                    <h6>
+                        Draft Jobs
+                    </h6>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card border-info">
+
+                <div class="card-body text-center">
+
+                    <h2 class="text-info">
+                        {{ pending_jobs }}
+                    </h2>
+
+                    <h6>
+                        Pending Jobs
+                    </h6>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card border-danger">
+
+                <div class="card-body text-center">
+
+                    <h2 class="text-danger">
+                        {{ closed_jobs }}
+                    </h2>
+
+                    <h6>
+                        Closed Jobs
+                    </h6>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Action Buttons -->
+
+    <div class="mt-5 text-center">
+
+        <a href="/dashboard/jobs/"
+           class="btn btn-success btn-lg me-3">
+
+            Manage Jobs
+
+        </a>
+
+        <a href="/dashboard/applications/"
+           class="btn btn-primary btn-lg">
+
+            View Applications
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
