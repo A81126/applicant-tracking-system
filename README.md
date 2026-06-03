@@ -121,3 +121,36 @@ Draft → Pending → Live → Closed
 ✅ Public Job Portal  
 ✅ Resume Upload Support  
 ✅ Responsive UI (Bootstrap 5)
+Private Api/Admin 
+http://127.0.0.1:8000/register/
+<img width="1365" height="484" alt="image" src="https://github.com/user-attachments/assets/2f6d59fe-6e90-4f73-8e64-ad9887c60353" />
+http://127.0.0.1:8000/login/
+<img width="887" height="425" alt="image" src="https://github.com/user-attachments/assets/6b7d9d25-9b6b-455e-bf6b-b58680643581" />
+http://127.0.0.1:8000/dashboard/
+<img width="1365" height="523" alt="image" src="https://github.com/user-attachments/assets/271783a1-9e6f-4dc1-98a4-2754b6ce18da" />
+http://127.0.0.1:8000/dashboard/jobs/
+<img width="1350" height="549" alt="image" src="https://github.com/user-attachments/assets/8149a26c-6ccb-44df-af1b-776b4c0f6d4d" />
+http://127.0.0.1:8000/dashboard/jobs/7/edit/
+<img width="1029" height="556" alt="image" src="https://github.com/user-attachments/assets/822887e9-dd75-4205-a901-987969c3f992" />
+http://127.0.0.1:8000/dashboard/jobs/create/
+<img width="970" height="563" alt="image" src="https://github.com/user-attachments/assets/7b035fa6-f457-4e06-9d60-cc8e09ed419e" />
+http://127.0.0.1:8000/dashboard/applications/
+<img width="1363" height="351" alt="image" src="https://github.com/user-attachments/assets/591f123e-03d4-4703-9066-508874ed81cb" />
+http://127.0.0.1:8000/media/resumes/Ashish_1010_3BPIdR8.pdf
+<img width="1331" height="551" alt="image" src="https://github.com/user-attachments/assets/56c53051-2ed0-425c-a2fe-ffb860d0c87e" />
+
+
+
+
+
+Public api
+http://127.0.0.1:8000/jobs/
+<img width="1333" height="581" alt="image" src="https://github.com/user-attachments/assets/06629542-7faf-4b98-ad5b-d266e4265ccd" />
+http://127.0.0.1:8000/jobs/python-developer/
+<img width="1310" height="590" alt="image" src="https://github.com/user-attachments/assets/fa4d00f0-bcb3-4d7e-84a5-f11e027d0b70" />
+http://127.0.0.1:8000/jobs/python-developer/apply/
+<img width="1365" height="598" alt="image" src="https://github.com/user-attachments/assets/3f8fab40-9fac-4e5c-8018-a892939187f0" />
+
+
+
+
