@@ -1,327 +1,123 @@
-﻿# ATS Project
-Project Overview
-
-This project is a simplified Applicant Tracking System (ATS) built using:
-
-Python
-Django
-Django REST Framework (DRF)
-PostgreSQL
-JWT Authentication
-Bootstrap 5
-
-The system allows recruiters to create and manage jobs, candidates to apply for jobs, and administrators to track applications through a centralized dashboard.
-Technology Stack
-Technology	Usage
-Python	Backend Development
-Django	Web Framework
-Django REST Framework	REST APIs
-PostgreSQL	Database
-JWT	Authentication
-Bootstrap 5	Frontend UI
-Git & GitHub	Version Control
-
-Features Implemented
-Authentication
-User Registration
-New users can register.
-User Login
-JWT based authentication.
-JWT Tokens
-Generate Token
-Job Management
-
-Recruiters/Admins can:
-<img width="1365" height="558" alt="image" src="https://github.com/user-attachments/assets/b79a5f76-3641-41e8-93fb-c99b0e7699b3" />
-
-
-Create Jobs
-<img width="829" height="551" alt="image" src="https://github.com/user-attachments/assets/b1b4309c-34e6-42dd-9967-1f8de82f2809" />
-
-View Jobs
-Update Jobs
-<img width="921" height="540" alt="image" src="https://github.com/user-attachments/assets/cde1d7cf-5e08-4714-a705-a68789f9d359" />
-
-Delete Jobs
-
-Supported Fields:
-
-Job Title
-Description
-Salary Range
-Location
-Job Type
-Location Type
-Status
-Slug
-
-Job Status:
-
-Draft
-Pending
-Live
-Closed
-Application Management
-
-Candidates can:
-
-View live jobs
-View job details
-Apply for jobs
-Upload resume
-Submit cover letter
-Dashboard
-
-Admin Dashboard provides:
-<img width="1365" height="540" alt="image" src="https://github.com/user-attachments/assets/9bfa0568-18a6-4f48-b956-6446dc64ee4c" />
-
-<img width="1365" height="600" alt="image" src="https://github.com/user-attachments/assets/981999be-1f66-4ad9-aaa0-9c9af321cee7" />
-
-
-Total Jobs
-Live Jobs
-Draft Jobs
-Pending Jobs
-Closed Jobs
-Total Applications
-Public APIs
-
-These APIs are accessible without authentication.
-URL Structure Diagram
-ATS SYSTEM
-│
-├── AUTHENTICATION
-│   ├── /register/
-│   ├── /login/
-│   ├── /api/register/
-│   ├── /api/token/
-│   └── /api/token/refresh/
-│
-├── PUBLIC JOB PORTAL
-│   ├── /jobs/
-│   ├── /jobs/<slug>/
-│   └── /jobs/<slug>/apply/
-│
-├── PUBLIC APIs
-│   ├── /public/jobs/
-│   └── /public/jobs/<slug>/
-│
-├── APPLICATION API
-│   └── /api/applications/apply/
-│
-├── ADMIN DASHBOARD
-│   ├── /dashboard/
-│   ├── /dashboard/jobs/
-│   ├── /dashboard/jobs/create/
-│   ├── /dashboard/jobs/<id>/edit/
-│   ├── /dashboard/jobs/<id>/delete/
-│   └── /dashboard/applications/
-│
-└── DJANGO ADMIN
-    └── /admin/
-    Authentication Flow
-                     PUBLIC
-
-      ┌────────────────────┐
-      │   Register User    │
-      └────────────────────┘
-                 │
-                 ▼
-      http://127.0.0.1:8000/register/
-
-                 │
-                 ▼
-
-      ┌────────────────────┐
-      │     Login User     │
-      └────────────────────┘
-                 │
-                 ▼
-      http://127.0.0.1:8000/login/
-
-                 │
-                 ▼
-
-      ┌────────────────────┐
-      │   JWT Token API    │
-      └────────────────────┘
-                 │
-                 ▼
-      POST /api/token/
-
-                 │
-                 ▼
-
-      ┌────────────────────┐
-      │ Access Token Given │
-      └────────────────────┘
-      Admin Flow
-                           PRIVATE
-
-             ┌───────────────┐
-             │   Dashboard   │
-             └───────────────┘
-                     │
-                     ▼
+# Applicant Tracking System (ATS)
+
+A simple job management and application platform built with Django and PostgreSQL. Recruiters post jobs, candidates apply, and admins track everything through a dashboard.
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|-----------|---------|
+| Python | Backend |
+| Django | Web Framework |
+| Django REST Framework | APIs |
+| PostgreSQL | Database |
+| JWT | Authentication |
+| Bootstrap 5 | Frontend |
+
+## ✨ Key Features
 
-     http://127.0.0.1:8000/dashboard/
+### 👤 User Authentication
+- User registration
+- JWT-based login
+- Secure token management
+
+### 💼 Job Management (Recruiters/Admins)
+- **Create, Read, Update, Delete** jobs
+- Job fields: Title, Description, Salary, Location, Type
+- Job status: Draft, Pending, Live, Closed
+
+### 📝 Job Applications (Candidates)
+- Browse live jobs
+- View job details
+- Apply with resume & cover letter
+- Track applications
+
+### 📊 Admin Dashboard
+- View total jobs (Live, Draft, Pending, Closed)
+- Monitor total applications
+- Manage all jobs and applications
+
+---
+
+## 🔄 User Flows
+
+### Candidate Flow
+```
+Browse Jobs → View Details → Apply → Upload Resume → Application Saved
+```
+
+### Recruiter Flow
+```
+Login → Dashboard → Create Job → Publish → Review Applications
+```
+
+---
+
+## 📍 API Endpoints
+
+### Public (No Authentication Required)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/jobs/` | List all live jobs |
+| GET | `/jobs/<slug>/` | View job details |
+| GET | `/public/jobs/` | Public jobs API |
+| GET | `/public/jobs/<slug>/` | Public job details API |
+| POST | `/api/register/` | Register new user |
+| POST | `/api/token/` | Login & get JWT token |
+| POST | `/api/token/refresh/` | Refresh JWT token |
+| POST | `/api/applications/apply/` | Submit job application |
+
+### Private (Authentication Required)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/dashboard/` | Admin dashboard |
+| GET | `/dashboard/jobs/` | List all jobs |
+| GET | `/dashboard/jobs/create/` | Create job form |
+| GET | `/dashboard/jobs/<id>/edit/` | Edit job form |
+| GET | `/dashboard/jobs/<id>/delete/` | Delete job |
+| GET | `/dashboard/applications/` | View all applications |
+| GET | `/admin/` | Django admin panel |
+
+---
+
+## 🚀 Quick Start
+
+1. **Register** as a user: `/register/`
+2. **Login** for JWT token: `/login/`
+3. **Candidates**: Browse jobs at `/jobs/` and apply
+4. **Recruiters**: Access `/dashboard/` to manage jobs
+5. **Admins**: Use `/admin/` for full system control
+
+---
+
+## 📝 Job Status Workflow
+
+```
+Draft → Pending → Live → Closed
+```
+
+- **Draft**: Not yet published
+- **Pending**: Awaiting approval
+- **Live**: Accepting applications
+- **Closed**: No longer accepting applications
 
-                     │
-                     ▼
+---
 
-           ┌──────────────────┐
-           │   Manage Jobs    │
-           └──────────────────┘
+## 🎯 Quick Reference
 
-                     │
-                     ▼
+| User Type | Main Actions | Access |
+|-----------|-------------|--------|
+| **Candidate** | Browse, Apply | Public |
+| **Recruiter** | Create, Edit, Delete Jobs | Private (Dashboard) |
+| **Admin** | Full System Access | Private (Admin) |
 
-      http://127.0.0.1:8000/dashboard/jobs/
+---
 
-                     │
-      ┌──────────────┼──────────────┐
-      ▼              ▼              ▼
+## ✅ Features at a Glance
 
-┌──────────┐   ┌──────────┐   ┌──────────┐
-│ Create   │   │  Edit    │   │ Delete   │
-│  Job     │   │  Job     │   │  Job     │
-└──────────┘   └──────────┘   └──────────┘
-
-      │              │
-      ▼              ▼
-
-/dashboard/jobs/create/
-
-/dashboard/jobs/<id>/edit/
-
-Candidate Flow
-                    PUBLIC
-
-         ┌────────────────────┐
-         │  View Open Jobs    │
-         └────────────────────┘
-                    │
-                    ▼
-
-      http://127.0.0.1:8000/jobs/
-
-                    │
-                    ▼
-
-         ┌────────────────────┐
-         │   Job Details      │
-         └────────────────────┘
-                    │
-                    ▼
-
-      /jobs/python-developer/
-
-                    │
-                    ▼
-
-         ┌────────────────────┐
-         │     Apply Job      │
-         └────────────────────┘
-                    │
-                    ▼
-
-      /jobs/python-developer/apply/
-
-                    │
-                    ▼
-
-         ┌────────────────────┐
-         │ Resume Uploaded    │
-         └────────────────────┘
-                    │
-                    ▼
-
-         Application Saved
-
-
-Public URLs
-┌─────────────────────────────────────────┐
-│              PUBLIC URLS                │
-└─────────────────────────────────────────┘
-
-GET   /jobs/
-
-GET   /jobs/<slug>/
-
-GET   /jobs/<slug>/apply/
-
-GET   /public/jobs/
-
-GET   /public/jobs/<slug>/
-
-POST  /api/register/
-
-POST  /api/token/
-
-POST  /api/token/refresh/
-
-POST  /api/applications/apply/
-
-Private URLs
-┌─────────────────────────────────────────┐
-│             PRIVATE URLS                │
-└─────────────────────────────────────────┘
-
-GET   /dashboard/
-
-GET   /dashboard/jobs/
-
-GET   /dashboard/jobs/create/
-
-GET   /dashboard/jobs/<id>/edit/
-
-GET   /dashboard/jobs/<id>/delete/
-
-GET   /dashboard/applications/
-
-GET   /admin/
-
-Complete ATS Flow
-Candidate
-    │
-    ▼
-View Jobs
-    │
-    ▼
-Job Detail
-    │
-    ▼
-Apply Job
-    │
-    ▼
-Resume Upload
-    │
-    ▼
-Application Saved
-    │
-    ▼
-Recruiter Dashboard
-    │
-    ▼
-View Applications
-
-
-Recruiter
-    │
-    ▼
-Login
-    │
-    ▼
-Dashboard
-    │
-    ▼
-Create Job
-    │
-    ▼
-Publish Job
-    │
-    ▼
-Candidate Applies
-    │
-    ▼
-Review Application
+✅ JWT Authentication  
+✅ Job CRUD Operations  
+✅ Application Management  
+✅ Admin Dashboard with Stats  
+✅ Public Job Portal  
+✅ Resume Upload Support  
+✅ Responsive UI (Bootstrap 5)
