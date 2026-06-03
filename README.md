@@ -184,4 +184,4 @@ For issues, questions, or feature requests, please open an issue in the reposito
 
 ---
 
-**Built with ❤️ | Designed for Efficient Hiring**
+
